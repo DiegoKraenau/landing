@@ -1,0 +1,48 @@
+package com.example.backend.JWT;
+
+import javax.naming.AuthenticationException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+
+public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
+
+	private AuthenticationManager authenticationManager;
+	//private JWTService jwtService;
+
+	public JWTAuthenticationFilter(AuthenticationManager authenticationManager) {
+		this.authenticationManager = authenticationManager;
+		//setRequiresAuthenticationRequestMatcher(new AntPathRequestMatcher("/api/login", "POST"));
+		
+		//this.jwtService = jwtService;
+	}
+
+	@Override
+	public org.springframework.security.core.Authentication attemptAuthentication(HttpServletRequest request,
+			HttpServletResponse response) throws org.springframework.security.core.AuthenticationException {
+		String username = obtainUsername(request);
+		String password = obtainPassword(request);
+		
+		if(username==null) {
+			username="";
+		}
+		if(password==null) {
+			password="";
+		}
+		if(username!=null && password!=null) {
+			logger.info("User name desde request parameter (form-data):"+ username);
+		}
+
+		username = username.trim();
+		
+		UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(username, password);
+		
+		return authenticationManager.authenticate(authToken);
+	}
+
+	
+}
