@@ -1,0 +1,25 @@
+algortimos : https://www.raona.com/los-10-algoritmos-esenciales-machine-learning/
+
+desicion tree :
+https://github.com/tkanos/go-dtree
+https://github.com/zoh/decision-tree
+
+bayesian:
+https://github.com/jbrukh/bayesian
+https://github.com/lytics/multibayes
+
+Ordinary Least Squares Regression:
+https://github.com/cdipaolo/linear
+https://stackoverflow.com/questions/16422287/linear-regression-library-for-go-language
+https://medium.com/devthoughts/linear-regression-with-go-ff1701455bcd
+https://synchrodynamic.com/math/finding-trends-in-data-golang-linear-regression/2019/
+http://onlinestatbook.com/2/regression/intro.html
+
+logistic regresion:
+https://www.zupzup.org/ml-in-go-logreg/
+
+Support vector machines:
+https://github.com/apourchet/go-svmlight
+
+LINK GOSUSASO: https://github.com/phillikus/go_linear_regression
+https://cheesyprogrammer.com/2019/12/11/implementing-gradient-descent-in-go/
